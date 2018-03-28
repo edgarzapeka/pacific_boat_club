@@ -2,10 +2,12 @@
 ======
 
 ## full name
- ** Zapeka Edhar Khoa Nguyen **
+ * Zapeka Edhar
+ * Khoa Nguyen
 
 ## email address
- ** ezapeka@my.bcit.ca knguyen@my.bcit.ca **
+ * ezapeka@my.bcit.ca
+ * knguyen@my.bcit.ca
 
 ## what you have not completed
 
