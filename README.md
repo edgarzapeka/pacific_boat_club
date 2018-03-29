@@ -1,4 +1,4 @@
-# Pacific Boat Clum
+# Pacific Boat Club
 
 ## full name
  * Zapeka Edhar
