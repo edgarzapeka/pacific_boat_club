@@ -1,0 +1,156 @@
+db.members.insert( 
+[
+    {
+      "firstname": "Eva",
+      "lastname": "Thompson",
+      "Address": {
+        "Street": "Bridge Street",
+        "City": "Norris",
+        "Province": "Kansas",
+        "PostalCode": "V3M 2M5",
+        "Country": "Paraguay"
+      },
+      "Email": "Eva@mail.com",
+      "Password": "password",
+      "Role": "member",
+      "CreationDate": "Wed Mar 28 2018 19:39:12 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+      "firstname": "Bettye",
+      "lastname": "Chapman",
+      "Address": {
+        "Street": "Sharon Street",
+        "City": "Stagecoach",
+        "Province": "Utah",
+        "PostalCode": "V3M 2M5",
+        "Country": "Falkland Islands (Malvinas)"
+      },
+      "Email": "Bettye@mail.com",
+      "Password": "password",
+      "Role": "member",
+      "CreationDate": "Wed Mar 28 2018 19:39:12 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+      "firstname": "Leta",
+      "lastname": "Raymond",
+      "Address": {
+        "Street": "Balfour Place",
+        "City": "Gordon",
+        "Province": "Colorado",
+        "PostalCode": "V3M 2M5",
+        "Country": "Trinidad and Tobago"
+      },
+      "Email": "Leta@mail.com",
+      "Password": "password",
+      "Role": "member",
+      "CreationDate": "Wed Mar 28 2018 19:39:12 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+      "firstname": "Maricela",
+      "lastname": "Mcfarland",
+      "Address": {
+        "Street": "Gatling Place",
+        "City": "Glendale",
+        "Province": "Arizona",
+        "PostalCode": "V3M 2M5",
+        "Country": "Haiti"
+      },
+      "Email": "Maricela@mail.com",
+      "Password": "password",
+      "Role": "member",
+      "CreationDate": "Wed Mar 28 2018 19:39:12 GMT-0700 (Pacific Daylight Time)"
+    },
+    {
+      "firstname": "Jerri",
+      "lastname": "Reilly",
+      "Address": {
+        "Street": "Holly Street",
+        "City": "Yonah",
+        "Province": "Connecticut",
+        "PostalCode": "V3M 2M5",
+        "Country": "Reunion"
+      },
+      "Email": "Jerri@mail.com",
+      "Password": "password",
+      "Role": "member",
+      "CreationDate": "Wed Mar 28 2018 19:39:12 GMT-0700 (Pacific Daylight Time)"
+    },
+    
+        {
+          "firstname": "Lee",
+          "lastname": "Wyatt",
+          "Address": {
+            "Street": "Eagle Street",
+            "City": "Omar",
+            "Province": "Oklahoma",
+            "PostalCode": "V3M 2M5",
+            "Country": "Qatar"
+          },
+          "Email": "Lee@mail.com",
+          "Password": "password",
+          "Role": "member",
+          "CreationDate": "Wed Mar 28 2018 19:40:21 GMT-0700 (Pacific Daylight Time)"
+        },
+        {
+          "firstname": "Allen",
+          "lastname": "Cooper",
+          "Address": {
+            "Street": "Kings Place",
+            "City": "Sanders",
+            "Province": "Missouri",
+            "PostalCode": "V3M 2M5",
+            "Country": "Saint Lucia"
+          },
+          "Email": "Allen@mail.com",
+          "Password": "password",
+          "Role": "member",
+          "CreationDate": "Wed Mar 28 2018 19:40:21 GMT-0700 (Pacific Daylight Time)"
+        },
+        {
+          "firstname": "Gutierrez",
+          "lastname": "Flowers",
+          "Address": {
+            "Street": "Buffalo Avenue",
+            "City": "Gibsonia",
+            "Province": "New York",
+            "PostalCode": "V3M 2M5",
+            "Country": "El Salvador"
+          },
+          "Email": "Gutierrez@mail.com",
+          "Password": "password",
+          "Role": "member",
+          "CreationDate": "Wed Mar 28 2018 19:40:21 GMT-0700 (Pacific Daylight Time)"
+        },
+        {
+          "firstname": "Herman",
+          "lastname": "Cortez",
+          "Address": {
+            "Street": "Hinckley Place",
+            "City": "Lindcove",
+            "Province": "Maine",
+            "PostalCode": "V3M 2M5",
+            "Country": "Lithuania"
+          },
+          "Email": "Herman@mail.com",
+          "Password": "password",
+          "Role": "member",
+          "CreationDate": "Wed Mar 28 2018 19:40:21 GMT-0700 (Pacific Daylight Time)"
+        },
+        {
+          "firstname": "Underwood",
+          "lastname": "Garcia",
+          "Address": {
+            "Street": "Kingsland Avenue",
+            "City": "Sims",
+            "Province": "Mississippi",
+            "PostalCode": "V3M 2M5",
+            "Country": "Hungary"
+          },
+          "Email": "Underwood@mail.com",
+          "Password": "password",
+          "Role": "member",
+          "CreationDate": "Wed Mar 28 2018 19:40:21 GMT-0700 (Pacific Daylight Time)"
+        }
+      
+  ]);
+  
