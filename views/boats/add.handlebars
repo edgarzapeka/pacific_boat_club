@@ -1,0 +1,36 @@
+{{#each errors}}
+    <div class="alert alert-danger">
+        {{text}}
+    </div>
+{{else}}
+{{/each}}
+<div class="card card-body">
+    <h3>New Boat</h3>
+    <form action="/boats" method="post">
+        <div class="form-group">
+            <label for="BoatName">Boat Name:</label>
+            <input type="text" class="form-control" name="BoatName" value="" required>
+        </div>
+     
+        <div class="form-group">
+            <label for="BoatLengthInFeet">Boat Length (in feet):</label>
+            <input  class="form-control" name="BoatLengthInFeet" value="" required /> 
+        </div>
+        <div class="form-group">
+            <label for="BoatYear">Boat Year:</label>
+            <input  class="form-control" name="BoatYear" value="" required /> 
+        </div>
+        <div class="form-group">
+            <label for="BoatCapacityInPeople">Boat Capacity (in people):</label>
+            <input  class="form-control" name="BoatCapacityInPeople" value="" required /> 
+        <div class="form-group">
+            <label for="BoatPictureUrl">Boat Picture Url:</label>
+            <input  class="form-control" name="BoatPictureUrl" value=""  /> 
+        </div>
+        <div class="form-group">
+            <label for="RentedDate">Date Rented:</label>
+            <input  class="form-control" name="RentedDate" value=""  /> 
+        </div>                       
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>

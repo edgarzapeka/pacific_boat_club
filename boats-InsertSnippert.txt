@@ -1,0 +1,83 @@
+db.boats.insert([
+    {
+      "BoatName": "Oxford",
+      "BoatLengthInFeet": 5,
+      "BoatYear": "2015",
+      "BoatCapacityInPeople": 5,
+      "BoatPictureUrl": "",
+      "RentedDate": "2018-04-08"
+    },
+    {
+      "BoatName": "Cambridge",
+      "BoatLengthInFeet": 6,
+      "BoatYear": "2016",
+      "BoatCapacityInPeople": 6,
+      "BoatPictureUrl": "",
+      "RentedDate": ""
+    },
+    {
+      "BoatName": "Iris",
+      "BoatLengthInFeet": 7,
+      "BoatYear": "2017",
+      "BoatCapacityInPeople": 7,
+      "BoatPictureUrl": "",
+      "RentedDate": "2018-04-06"
+    },
+    {
+      "BoatName": "Goldie",
+      "BoatLengthInFeet": 8,
+      "BoatYear": "2018",
+      "BoatCapacityInPeople": 8,
+      "BoatPictureUrl": "",
+      "RentedDate": ""
+    },
+    
+    {
+      "BoatName": "Thames",
+      "BoatLengthInFeet": 9,
+      "BoatYear": "2017",
+      "BoatCapacityInPeople": 9,
+      "BoatPictureUrl": "",
+      "RentedDate": "",
+    },   
+    {
+      "BoatName": "Henley",
+      "BoatLengthInFeet": 8,
+      "BoatYear": "2018",
+      "BoatCapacityInPeople": 8,
+      "BoatPictureUrl": "",
+      "RentedDate": ""
+    },
+    {
+      "BoatName": "Goldie",
+      "BoatLengthInFeet": 8,
+      "BoatYear": "2018",
+      "BoatCapacityInPeople": 8,
+      "BoatPictureUrl": "",
+      "RentedDate": ""
+    },
+    {
+      "BoatName": "Vendee",
+      "BoatLengthInFeet": 7,
+      "BoatYear": "2017",
+      "BoatCapacityInPeople": 7,
+      "BoatPictureUrl": "",
+      "RentedDate": ""
+    },
+    {
+      "BoatName": "Minnow",
+      "BoatLengthInFeet": 6,
+      "BoatYear": "2016",
+      "BoatCapacityInPeople": 6,
+      "BoatPictureUrl": "",
+      "RentedDate": ""
+    },
+    {
+      "BoatName": "London",
+      "BoatLengthInFeet": 5,
+      "BoatYear": "2015",
+      "BoatCapacityInPeople": 5,
+      "BoatPictureUrl": "",
+      "RentedDate": "2018-03-31"
+    }
+]);

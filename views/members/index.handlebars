@@ -1,0 +1,24 @@
+{{#each members}}
+    <div class="card card-body mb-2">
+        <h4>{{title}}</h4>
+        <p>First Name: {{firstname}}</p>
+        <p>Last Name:{{lastname}}</p>
+        <p>Street: {{street}}</p>
+        <p>City: {{city}}</p>
+        <p>Province: {{province}}</p>
+        <p>Postal Code: {{postalCode}}</p>
+        <p>Country: {{country}}</p>
+        <p>Email: {{email}}</p>
+        <p>Password: {{Password}}</p>
+        <p>Role: {{Role}}</p>
+        <p>Creation Date: {{CreationDate}}</p>
+        <a class="btn btn-dark btn-block mb-2" href="/members/edit/{{id}}">Edit</a>
+        <form method="post" action="/members/{{id}}?_method=DELETE">
+            <input type="hidden" name="_method" value="DELETE">
+
+            <button class="btn btn-danger btn-block">Delete</button>
+        </form>
+    </div>
+{{else}}
+<p>No Members</p>
+{{/each}}

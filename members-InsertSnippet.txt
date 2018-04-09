@@ -1,0 +1,135 @@
+db.members.insert( 
+[
+   {
+    "firstname": "Mcguire",
+    "lastname": "Cohen",
+    "street": "Bokee Court",
+    "city": "Camptown",
+    "province": "Virginia",
+    "postalCode": "V3M 2M5",
+    "country": "Nauru",
+    "email": "Mcguire@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:10:11 GMT-0700 (Pacific Daylight Time)"
+  },
+  {
+    "firstname": "Fitzgerald",
+    "lastname": "Collier",
+    "street": "Applegate Court",
+    "city": "Charco",
+    "province": "Idaho",
+    "postalCode": "V3M 2M5",
+    "country": "Sri Lanka",
+    "email": "Fitzgerald@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:10:11 GMT-0700 (Pacific Daylight Time)"
+  },
+  {
+    "firstname": "Merritt",
+    "lastname": "Blair",
+    "street": "Clarkson Avenue",
+    "city": "Salvo",
+    "province": "Palau",
+    "postalCode": "V3M 2M5",
+    "country": "Guam",
+    "email": "Merritt@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:10:11 GMT-0700 (Pacific Daylight Time)"
+  },
+  {
+    "firstname": "Gillespie",
+    "lastname": "Head",
+    "street": "Rugby Road",
+    "city": "Crawfordsville",
+    "province": "Alabama",
+    "postalCode": "V3M 2M5",
+    "country": "Ireland",
+    "email": "Gillespie@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:10:11 GMT-0700 (Pacific Daylight Time)"
+  },
+  {
+    "firstname": "Holden",
+    "lastname": "Contreras",
+    "street": "Woodhull Street",
+    "city": "Hamilton",
+    "province": "North Carolina",
+    "postalCode": "V3M 2M5",
+    "country": "Ethiopia",
+    "email": "Holden@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:10:11 GMT-0700 (Pacific Daylight Time)"
+  },
+   {
+    "firstname": "Clarice",
+    "lastname": "Kennedy",
+    "street": "Apollo Street",
+    "city": "Oley",
+    "province": "New Hampshire",
+    "postalCode": "V3M 2M5",
+    "country": "Ecuador",
+    "email": "Clarice@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:11:41 GMT-0700 (Pacific Daylight Time)"
+  },
+  {
+    "firstname": "Megan",
+    "lastname": "Gonzalez",
+    "street": "Aurelia Court",
+    "city": "Venice",
+    "province": "Alaska",
+    "postalCode": "V3M 2M5",
+    "country": "Bahrain",
+    "email": "Megan@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:11:41 GMT-0700 (Pacific Daylight Time)"
+  },
+  {
+    "firstname": "Lela",
+    "lastname": "Morgan",
+    "street": "Hubbard Street",
+    "city": "Bourg",
+    "province": "Pennsylvania",
+    "postalCode": "V3M 2M5",
+    "country": "Papua New Guinea",
+    "email": "Lela@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:11:41 GMT-0700 (Pacific Daylight Time)"
+  },
+  {
+    "firstname": "Rosalind",
+    "lastname": "Larsen",
+    "street": "Schenck Avenue",
+    "city": "Craig",
+    "province": "Ohio",
+    "postalCode": "V3M 2M5",
+    "country": "Italy",
+    "email": "Rosalind@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:11:41 GMT-0700 (Pacific Daylight Time)"
+  },
+  {
+    "firstname": "Leah",
+    "lastname": "Nielsen",
+    "street": "Gain Court",
+    "city": "Joppa",
+    "province": "Washington",
+    "postalCode": "V3M 2M5",
+    "country": "Mexico",
+    "email": "Lea@mail.com",
+    "Password": "password",
+    "Role": "member",
+    "CreationDate": "Sun Apr 08 2018 20:11:41 GMT-0700 (Pacific Daylight Time)"
+  }
+   
+]);
+  

@@ -1,0 +1,38 @@
+{{#each errors}}
+    <div class="alert alert-danger">
+        {{text}}
+    </div>
+{{else}}
+{{/each}}
+<div class="card card-body">
+    <h3>Edit Boat</h3>
+    <form action="/boats/{{boat.id}}?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="form-group">
+            <label for="BoatName">Boat Name:</label>
+            <input type="text" class="form-control" name="BoatName" value="{{boat.BoatName}}"  required>
+        </div>
+     
+        <div class="form-group">
+            <label for="BoatLengthInFeet">Boat Length (in feet):</label>
+            <input  class="form-control" name="BoatLengthInFeet" value="{{boat.BoatLengthInFeet}} " required> 
+        </div>
+        <div class="form-group">
+            <label for="BoatYear">Boat Year:</label>
+            <input  class="form-control" name="BoatYear" value="{{boat.BoatYear}} " required> 
+        </div>
+        <div class="form-group">
+            <label for="BoatCapacityInPeople">Boat Capacity (in people):</label>
+            <input  class="form-control" name="BoatCapacityInPeople" value="{{boat.BoatCapacityInPeople}} " required> 
+        </div>
+        <div class="form-group">
+            <label for="BoatPictureUrl">BoatPictureUrl:</label>
+            <input  class="form-control" name="BoatPictureUrl" value="{{boat.BoatPictureUrl}} " > 
+        </div>
+        <div class="form-group">
+            <label for="RentedDate">Rented Date:</label>
+            <input  class="form-control" name="RentedDate" value="{{boat.RentedDate}} " > 
+        </div>                
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>

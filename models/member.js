@@ -1,22 +1,30 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const MemberSchema = new Schema({
-    FirstName:{
+    firstname:{
         type: String,
         required: true
     },
-    LastName: {
+    lastname: {
         type: String,
         require: true
+    },    
+    street: {
+        type: String,
     },
-    Address : {
-	Street: String,
-	City:String,
-	Province: String,
-	PostalCode: String,
-	Country: String	
+    city: {
+        type: String,
     },
-    Email: {
+    province: {
+        type: String,
+    },
+    postalCode: {
+        type: String,
+    },
+    country: {
+        type: String,
+    },
+    email: {
         type: String,
         default: Date.now
     },

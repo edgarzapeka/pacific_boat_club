@@ -1,0 +1,18 @@
+{{#each boats}}
+    <div class="card card-body mb-2">
+        <h4>{{title}}</h4>
+        <p>Name: {{BoatName}}</p>
+        <p>Length:{{BoatLengthInFeet}}</p>
+        <p>Year: {{BoatYear}}</p>
+        <p>Capacity: {{BoatCapacityInPeople}}</p>
+        <p>BoatPictureUrl: {{BoatPictureUrl}}</p>
+        <a class="btn btn-dark btn-block mb-2" href="/boats/edit/{{id}}">Edit</a>
+        <form method="post" action="/boats/{{id}}?_method=DELETE">
+            <input type="hidden" name="_method" value="DELETE">
+
+            <button class="btn btn-danger btn-block">Delete</button>
+        </form>
+    </div>
+{{else}}
+<p>no boats</p>
+{{/each}}
