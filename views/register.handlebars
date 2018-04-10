@@ -1,0 +1,51 @@
+<h2 class="page-header">Register</h2>
+
+{{#if errors}}
+    {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+    {{/each}}
+{{/if}}
+
+<form method="post" action="/users/register">
+    <div class="form-group">
+        <label>First Name</label>
+        <input class="form-control" placeholder="First Name" name="firstname" />
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input class="form-control" placeholder="Last Name" name="lastname" />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" placeholder="Email" name="email" />
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input class="form-control" placeholder="Password" name="password" />
+    </div>
+    <div class="form-group">
+        <label>Confirm Password</label>
+        <input class="form-control" placeholder="Confirm Password" name="password2" />
+    </div>
+    <div class="form-group">
+        <label>Street</label>
+        <input class="form-control" placeholder="Street" name="street" />
+    </div>
+     <div class="form-group">
+        <label>City</label>
+        <input class="form-control" placeholder="City" name="city" />
+    </div>
+     <div class="form-group">
+        <label>Province</label>
+        <input class="form-control" placeholder="Province" name="province" />
+    </div>
+    <div class="form-group">
+        <label>Postal Code</label>
+        <input class="form-control" placeholder="Postal Code" name="postalcode" />
+    </div>
+    <div class="form-group">
+        <label>Country</label>
+        <input class="form-control" placeholder="Country" name="country" />
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

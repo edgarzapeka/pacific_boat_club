@@ -1,0 +1,57 @@
+<script>
+    var geocoder;
+    var map;
+
+    function initMap() {
+        let options = {
+            zoom: 14,
+            center: { lat: 49.2827, lng: -123.1207 }
+        }
+        geocoder = new google.maps.Geocoder();
+        map = new google.maps.Map(document.getElementById('map'), options);
+        //codeAddress();
+    }
+
+    //console.log({{result}})
+
+    function codeAddress() {
+            var address = document.getElementById('address').value;
+            geocoder.geocode({
+                'address': address
+            }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    placeID = results[0].place_id
+                    lat = results[0].geometry.location.lat
+                    lng = results[0].geometry.location.lng
+                    Globaladdress = results[0].formatted_address
+                    map.setCenter(results[0].geometry.location);
+                    if (marker)
+                        marker.setMap(null);
+                    var contentString = '<div id= "addressOnMap">' + address +
+                        '</div>';
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+                    marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        draggable: true
+                    });
+
+                    marker.addListener('click', function () {
+                        infowindow.open(map, marker);
+                    });
+
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+    }
+ 
+</script>
+
+<h1>Users on map (initial version. will discuss it later)</h1>
+<div id="map" style="width: 100%; height: 300px">
+
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKtdwDUEBfyH1WIceQmylNKXn0HfT4LyU&callback=initMap" async defer></script>

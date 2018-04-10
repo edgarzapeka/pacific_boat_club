@@ -1,6 +1,11 @@
 <div class="jumbotron text-center">
     <h1 class="display-3">{{title}}</h1>
     <p class="lead"> Pacific Boat Club Member Site</p>
-    <a href="/boats" class="btn btn-dark btn-lg">Boat List</a>
-    <a href="/members" class="btn btn-dark btn-lg">Member List</a>
+    {{#if user}}
+        <a href="/boats" class="btn btn-dark btn-lg">Boat List</a>
+        <a href="/members" class="btn btn-dark btn-lg">Member List</a>
+     {{else}}
+        <h1>You have to login before using service</h1>
+        <a href="users/login" class="btn btn-dark btn-lg">Login</a>
+     {{/if}}
 </div>

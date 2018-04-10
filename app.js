@@ -6,9 +6,16 @@ const session = require('express-session');
 const exphbs  = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+var config = require('./config/');
+var passport = require('passport');
+var expressValidator = require('express-validator');
+var cookieParser = require('cookie-parser');
+
 const app = express();
-const port = 5000;
- 
+const port = config.port;
+
+var routes = require('./routes/index');
+var users = require('./routes/users');
  
 //Map global promise to get rid of warning
 mongoose.Promise = global.Promise;
@@ -17,7 +24,7 @@ mongoose.Promise = global.Promise;
 // }).then(() => console.log('MongoDB connected...'))
 // .catch( err =>console.log(err));
 
-mongoose.connect('mongodb://localhost/loginapp', {
+mongoose.connect(config.database, {
     useMongoClient: true
 }).then(() => console.log('MongoDB connected...'))
 .catch( err =>console.log(err));
@@ -27,8 +34,8 @@ require('./models/ideas');
 const Idea = mongoose.model('ideas');
 
 //Load member model
-require('./models/member');
-const Member = mongoose.model('members');
+//require('./models/member');
+//const Member = mongoose.model('members');
 
 require('./models/boat');
 const Boat = mongoose.model('boats');
@@ -41,6 +48,7 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use(methodOverride('_method'));
 
@@ -50,42 +58,78 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
     
-  }));
+}));
+
+  // passport initialization
+app.use(passport.initialize());
+app.use(passport.session());
+
+// bring in passport strategy we defined
+//require('./config/passport')(passport);
+
+// express validator
+app.use(expressValidator({
+    errorFormatter: function(param, msg, value) {
+        var namespace = param.split('.');
+        var root = namespace.shift();
+        var formParam = root;
+
+        while(namespace.length) {
+            formParam += '[' + namespace.shift() + ']';
+        }
+
+        return {
+            param: formParam,
+            msg: msg,
+            value: value
+        }
+    }
+}));
 
 app.use(flash());
-
 app.use(function(req, res, next){
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    res.locals.user = req.user || null;
     next();
 });
 
-app.get('/',(req, res) =>{
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    } else {
+        req.flash('error_msg', "You are not logged in");
+        res.redirect('/users/login');
+    }
+}
+
+ 
+app.get('/', (req, res) =>{
     const title = 'welcome'
     res.render('index',{
         title
     });
     //console.log(req.name)
-});
+}); 
 
 app.get('/about',(req, res) =>{
     res.render('about');
 });
 
 // Add Idea form
-app.get('/ideas/add', (req, res) => {     
+app.get('/ideas/add', ensureAuthenticated, (req, res) => {     
     res.render('ideas/add');
 });
-app.get('/boats/add', (req, res) => {     
+app.get('/boats/add', ensureAuthenticated, (req, res) => {     
     res.render('boats/add');
 });
-app.get('/members/add', (req, res) => {     
+app.get('/members/add', ensureAuthenticated, (req, res) => {     
     res.render('members/add');
 });
 
 // EditIdea form
-app.get('/ideas/edit/:id', (req, res) => {
+app.get('/ideas/edit/:id', ensureAuthenticated, (req, res) => {
     Idea.findOne({
         _id: req.params.id
     })
@@ -98,7 +142,7 @@ app.get('/ideas/edit/:id', (req, res) => {
      
 });
 
-app.get('/boats/edit/:id', (req, res) => {
+app.get('/boats/edit/:id', ensureAuthenticated, (req, res) => {
     Boat.findOne({
         _id: req.params.id
     })
@@ -111,7 +155,7 @@ app.get('/boats/edit/:id', (req, res) => {
      
 });
 
-app.get('/members/edit/:id', (req, res) => {
+app.get('/members/edit/:id', ensureAuthenticated, (req, res) => {
     Member.findOne({
         _id: req.params.id
     })
@@ -124,7 +168,7 @@ app.get('/members/edit/:id', (req, res) => {
      
 });
 // Idea index page
-app.get('/ideas', (req, res) => {
+app.get('/ideas', ensureAuthenticated, (req, res) => {
     Idea.find({})
     .sort({date: 'desc'})
     .then( ideas =>{
@@ -137,7 +181,7 @@ app.get('/ideas', (req, res) => {
 });
 
 // Boats index page
-app.get('/boats', (req, res) => {
+app.get('/boats', ensureAuthenticated, (req, res) => {
     Boat.find({})
     .sort({date: 'desc'})
     .then( boats =>{
@@ -149,7 +193,7 @@ app.get('/boats', (req, res) => {
      
 });
 
-app.get('/members', (req, res) => {
+app.get('/members', ensureAuthenticated, (req, res) => {
     Member.find({})
     .sort({date: 'desc'})
     .then( members =>{
@@ -161,12 +205,8 @@ app.get('/members', (req, res) => {
      
 });
 
- 
-
- 
-
 //Process form
-app.post('/ideas', (req,res)=> {
+app.post('/ideas', ensureAuthenticated, (req,res)=> {
     let errors = [];
     if(!req.body.title){
         errors.push({text:'please add a title'})
@@ -199,7 +239,7 @@ app.post('/ideas', (req,res)=> {
 }) 
 
 //Process form
-app.post('/boats', (req,res)=> {
+app.post('/boats', ensureAuthenticated, (req,res)=> {
     let errors = [];
     if(!req.body.BoatName){
         errors.push({text:'please add a boat name'})
@@ -243,7 +283,7 @@ app.post('/boats', (req,res)=> {
     //res.send('ok');
 }) 
 
-app.put('/ideas/:id', (req, res) => {
+app.put('/ideas/:id', ensureAuthenticated, (req, res) => {
     Idea.findOne({
         _id: req.params.id
     })
@@ -258,7 +298,7 @@ app.put('/ideas/:id', (req, res) => {
     })    
 })
 
-app.put('/boats/:id', (req, res) => {
+app.put('/boats/:id', ensureAuthenticated, (req, res) => {
     Boat.findOne({
         _id: req.params.id
     })
@@ -277,7 +317,7 @@ app.put('/boats/:id', (req, res) => {
     })    
 })
 
-app.put('/members/:id', (req, res) => {
+app.put('/members/:id', ensureAuthenticated, (req, res) => {
     Member.findOne({
         _id: req.params.id
     })
@@ -297,7 +337,7 @@ app.put('/members/:id', (req, res) => {
     })    
 })
 
-app.delete('/ideas/:id', (req, res) => {
+app.delete('/ideas/:id', ensureAuthenticated, (req, res) => {
     Idea.remove({_id : req.params.id})
     .then( () => {
         req.flash('success_msg','Idea removed')
@@ -306,7 +346,7 @@ app.delete('/ideas/:id', (req, res) => {
     //res.send('delete');
 });
 
-app.delete('/boats/:id', (req, res) => {
+app.delete('/boats/:id', ensureAuthenticated, (req, res) => {
     Boat.remove({_id : req.params.id})
     .then( () => {
         req.flash('success_msg','Boat removed')
@@ -315,7 +355,7 @@ app.delete('/boats/:id', (req, res) => {
     //res.send('delete');
 });
 
-app.delete('/members/:id', (req, res) => {
+app.delete('/members/:id', ensureAuthenticated, (req, res) => {
     Member.remove({_id : req.params.id})
     .then( () => {
         req.flash('success_msg','Boat removed')
@@ -329,6 +369,24 @@ app.get('/user/login',(req, res) => {
     res.send('login');
 })
 
+require('./models/user');
+const User = mongoose.model('User');
+
+app.use('/user/map', (req, res) =>{
+    User.find({})
+    .sort({date: 'desc'})
+    .then( users =>{
+        let usersData = users.map(u => u.city)
+        console.log(JSON.stringify(usersData))
+        let result = JSON.stringify(usersData)
+        res.render('usersmap',{
+            title: 'users',
+            result
+        });
+    })
+})
+
+app.use('/users', users);
 
 app.listen(port, () => {
     console.log(`Server start on port ${port}`)
