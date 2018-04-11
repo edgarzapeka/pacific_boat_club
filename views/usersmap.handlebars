@@ -10,12 +10,14 @@
         geocoder = new google.maps.Geocoder();
         map = new google.maps.Map(document.getElementById('map'), options);
         //codeAddress();
+        var usersArray = {{{result}}};
+        usersArray.map(u => codeAddress(u))
     }
 
-    //console.log({{result}})
+    console.log({{{result}}})
 
-    function codeAddress() {
-            var address = document.getElementById('address').value;
+    function codeAddress(address) {
+        var marker;
             geocoder.geocode({
                 'address': address
             }, function (results, status) {

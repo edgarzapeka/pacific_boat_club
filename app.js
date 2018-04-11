@@ -376,7 +376,7 @@ app.use('/user/map', (req, res) =>{
     User.find({})
     .sort({date: 'desc'})
     .then( users =>{
-        let usersData = users.map(u => u.city)
+        let usersData = users.map(u => `${u.street}, ${u.city}, ${u.province} ${u.postalCode}`)
         console.log(JSON.stringify(usersData))
         let result = JSON.stringify(usersData)
         res.render('usersmap',{

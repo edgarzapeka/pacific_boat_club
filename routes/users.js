@@ -41,6 +41,7 @@ router.post('/register', function(req, res) {
             errors: errors
         })
     } else {
+        console.log('COde ************** ' + postalcode)
         var newUser = new User({
             firstname: firstname,
             lastname: lastname,
@@ -49,7 +50,7 @@ router.post('/register', function(req, res) {
             street: street,
             city: city,
             province: province,
-            postalcode: postalcode,
+            postalCode: postalcode,
             country: country,
             userrole: "member",
             creationdate: Date.now
