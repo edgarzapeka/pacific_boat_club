@@ -34,8 +34,8 @@ require('./models/ideas');
 const Idea = mongoose.model('ideas');
 
 //Load member model
-//require('./models/member');
-//const Member = mongoose.model('members');
+require('./models/member');
+const Member = mongoose.model('members');
 
 require('./models/boat');
 const Boat = mongoose.model('boats');
