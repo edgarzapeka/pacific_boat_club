@@ -2,7 +2,9 @@ localhost:3000/user/
 localhost:3000/user/list
 localhost:3000/user/login
 localhost:3000/user/register
+
 localhost:3000/boat/list
 localhost:3000/boat/add
 localhost:3000/boat/edit/?id
+localhost:3000/boat/delete/?id
 

@@ -6,10 +6,6 @@ var jwt = require('jsonwebtoken');
 var config = require('./../config/');
 var User = require('../models/user');
 
-router.get('/login', function(req, res) {
-    res.render('login');
-});
-
 // post register route
 router.post('/register', function(req, res) {
     var firstname = req.body.firstname;
@@ -60,30 +56,6 @@ passport.deserializeUser(function (id, done) {
         done(err, user);
     });
 });
-
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password'
-    },
-    function(email, password, done) {
-        console.log('Email: ***** ' + email)
-        console.log('PAssword: **** ' + password)
-        User.getUserByEmail(email, function(err, user) {
-            if (err) throw err;
-            if (!user) {
-                return done(null, false, {message: 'Unknown User'});
-            }
-            User.comparePassword(password, user.password, function(err, isMatch) {
-                if (err) throw err;
-                if (isMatch) {
-                    return done(null, user);
-                } else {
-                    return done(null, false, {message: 'Invalid Password'});
-                }
-            });
-        });
-    }
-));
 
 router.post('/authenticate', function(req, res) {
     User.findOne({email: req.body.email}, function(err, user) {
