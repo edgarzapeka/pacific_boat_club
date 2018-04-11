@@ -16,9 +16,9 @@ const BoatSchema = new Schema({
     BoatPictureUrl: {
         type: String,        
     },
-    RentedDate :{
+    RentedBy: {
         type: String
     } 
 })
-mongoose.model('boats', BoatSchema);
 
+var Boat = module.exports = mongoose.model('boats', BoatSchema);

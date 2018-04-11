@@ -16,6 +16,7 @@ const port = config.port;
 
 var routes = require('./routes/index');
 var users = require('./routes/user');
+var boats = require('./routes/boat')
  
 //Map global promise to get rid of warning
 mongoose.Promise = global.Promise;
@@ -186,18 +187,6 @@ app.get('/ideas', ensureAuthenticated, (req, res) => {
      
 });
 
-// Boats index page
-app.get('/boats', ensureAuthenticated, (req, res) => {
-    Boat.find({})
-    .sort({date: 'desc'})
-    .then( boats =>{
-        res.render('boats/index',{
-            title: 'boat',
-            boats
-        });
-    })
-     
-});
 
 app.get('/members', ensureAuthenticated, (req, res) => {
     Member.find({})
@@ -392,8 +381,9 @@ app.use('/user/map', (req, res) =>{
     })
 })
 
-app.use('/user', users);
-app.use('/', routes);
+app.use('/user', users)
+app.use('/', routes)
+app.use('/boat', boats)
 
 app.listen(port, () => {
     console.log(`Server start on port ${port}`)

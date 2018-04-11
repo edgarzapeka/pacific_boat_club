@@ -5,7 +5,7 @@ db.boats.insert([
       "BoatYear": "2015",
       "BoatCapacityInPeople": 5,
       "BoatPictureUrl": "",
-      "RentedDate": "2018-04-08"
+      "RentedBy": "knguyen@my.bcit.ca"
     },
     {
       "BoatName": "Cambridge",
@@ -13,7 +13,7 @@ db.boats.insert([
       "BoatYear": "2016",
       "BoatCapacityInPeople": 6,
       "BoatPictureUrl": "",
-      "RentedDate": ""
+      "RentedBy": "edgar.zapeka@mail.com"
     },
     {
       "BoatName": "Iris",
@@ -21,7 +21,7 @@ db.boats.insert([
       "BoatYear": "2017",
       "BoatCapacityInPeople": 7,
       "BoatPictureUrl": "",
-      "RentedDate": "2018-04-06"
+      "RentedBy": ""
     },
     {
       "BoatName": "Goldie",
@@ -29,7 +29,7 @@ db.boats.insert([
       "BoatYear": "2018",
       "BoatCapacityInPeople": 8,
       "BoatPictureUrl": "",
-      "RentedDate": ""
+      "RentedBy": ""
     },
     
     {
@@ -38,7 +38,7 @@ db.boats.insert([
       "BoatYear": "2017",
       "BoatCapacityInPeople": 9,
       "BoatPictureUrl": "",
-      "RentedDate": "",
+      "RentedBy": "",
     },   
     {
       "BoatName": "Henley",
@@ -46,7 +46,7 @@ db.boats.insert([
       "BoatYear": "2018",
       "BoatCapacityInPeople": 8,
       "BoatPictureUrl": "",
-      "RentedDate": ""
+      "RentedBy": ""
     },
     {
       "BoatName": "Goldie",
@@ -54,7 +54,7 @@ db.boats.insert([
       "BoatYear": "2018",
       "BoatCapacityInPeople": 8,
       "BoatPictureUrl": "",
-      "RentedDate": ""
+      "RentedBy": ""
     },
     {
       "BoatName": "Vendee",
@@ -62,7 +62,7 @@ db.boats.insert([
       "BoatYear": "2017",
       "BoatCapacityInPeople": 7,
       "BoatPictureUrl": "",
-      "RentedDate": ""
+      "RentedBy": ""
     },
     {
       "BoatName": "Minnow",
@@ -70,7 +70,7 @@ db.boats.insert([
       "BoatYear": "2016",
       "BoatCapacityInPeople": 6,
       "BoatPictureUrl": "",
-      "RentedDate": ""
+      "RentedBy": ""
     },
     {
       "BoatName": "London",
@@ -78,6 +78,6 @@ db.boats.insert([
       "BoatYear": "2015",
       "BoatCapacityInPeople": 5,
       "BoatPictureUrl": "",
-      "RentedDate": "2018-03-31"
+      "RentedBy": ""
     }
 ]);

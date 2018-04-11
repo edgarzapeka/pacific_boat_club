@@ -4,16 +4,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var jwt = require('jsonwebtoken');
 var config = require('./../config/');
-
-
 var User = require('../models/user');
 
-// get register route
-router.get('/register', function(req, res) {
-    res.render('register');
-});
-
-// get login route
 router.get('/login', function(req, res) {
     res.render('login');
 });
@@ -31,40 +23,32 @@ router.post('/register', function(req, res) {
     var postalcode = req.body.postalcode;
     var country = req.body.country;
 
-    // validation
-    req.checkBody('email', 'Email is required').notEmpty();
-    req.checkBody('email', 'Email is not valid').isEmail();
-    req.checkBody('password', 'Password is required').notEmpty();
-    req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+    var newUser = new User({
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password,
+        street: street,
+        city: city,
+        province: province,
+        postalCode: postalcode,
+        country: country,
+        userrole: "member",
+        creationdate: Date.now
+    });
+    User.createUser(newUser, function(err, user) {
+        if (err){
+            return res.json({
+                response: "failure",
+                message: "Email already exists."
+            });
+        } 
+    });
 
-    var errors = req.validationErrors();
-
-    if (errors) {
-        res.render('register', {
-            errors: errors
-        })
-    } else {
-        var newUser = new User({
-            firstname: firstname,
-            lastname: lastname,
-            email: email,
-            password: password,
-            street: street,
-            city: city,
-            province: province,
-            postalCode: postalcode,
-            country: country,
-            userrole: "member",
-            creationdate: Date.now
-        });
-        User.createUser(newUser, function(err, user) {
-            if (err) throw err;
-            console.log(user);
-        });
-
-        req.flash('success-msg', "You are registered and can now login.");
-        res.redirect('/users/login');
-    }
+    res.json({
+        response: "success",
+        message: 'Successfully created new user.'
+    })
 });
 
 passport.serializeUser(function(user, done) {
@@ -101,17 +85,6 @@ passport.use(new LocalStrategy({
     }
 ));
 
-router.post('/login', 
-    passport.authenticate('local',{
-        successRedirect: '/user/login/success', 
-        failureRedirect: '/user/login/failure',
-        failureFlash: true
-    }),
-    function(req, res) {
-        res.redirect('/');
-    }
-);
-
 router.post('/authenticate', function(req, res) {
     User.findOne({email: req.body.email}, function(err, user) {
         if (err) throw err;
@@ -141,13 +114,6 @@ router.post('/authenticate', function(req, res) {
     });
 });
 
-
-router.get('/logout', function(req, res) {
-    req.logout();
-    req.flash('success_msg', 'You are logged out.');
-    res.redirect('/user/login');
-});
-
 router.get('/list', passport.authenticate('jwt', {session: false}), (req, res) => {
     User.find({})
     .sort({date: 'desc'})
@@ -155,13 +121,5 @@ router.get('/list', passport.authenticate('jwt', {session: false}), (req, res) =
         res.json({ response: "success", data: users });
     })
 }) 
-
-router.get('/login/success', (req, res) => {
-    res.json({response: "success", "token": "132ads/123"})
-})
-
-router.get('/login/failure', (req, res) => {
-    res.json({response: "failure", message: "Email or Password is incorrect. Try again."})
-})
 
 module.exports = router;

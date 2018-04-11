@@ -1,27 +1,27 @@
 db.members.insert( 
 [
    {
-    "firstname": "Mcguire",
-    "lastname": "Cohen",
+    "firstname": "khoa",
+    "lastname": "nguyen",
     "street": "Bokee Court",
     "city": "Camptown",
     "province": "Virginia",
     "postalCode": "V3M 2M5",
     "country": "Nauru",
-    "email": "Mcguire@mail.com",
+    "email": "knguyen@my.bcit.ca",
     "Password": "password",
     "Role": "member",
     "CreationDate": "Sun Apr 08 2018 20:10:11 GMT-0700 (Pacific Daylight Time)"
   },
   {
-    "firstname": "Fitzgerald",
-    "lastname": "Collier",
+    "firstname": "Edgar",
+    "lastname": "Zapeka",
     "street": "Applegate Court",
     "city": "Charco",
     "province": "Idaho",
     "postalCode": "V3M 2M5",
-    "country": "Sri Lanka",
-    "email": "Fitzgerald@mail.com",
+    "country": "Canada",
+    "email": "edgar.zapeka@mail.com",
     "Password": "password",
     "Role": "member",
     "CreationDate": "Sun Apr 08 2018 20:10:11 GMT-0700 (Pacific Daylight Time)"
@@ -132,4 +132,3 @@ db.members.insert(
   }
    
 ]);
-  
