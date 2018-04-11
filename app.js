@@ -15,7 +15,7 @@ const app = express();
 const port = config.port;
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/user');
  
 //Map global promise to get rid of warning
 mongoose.Promise = global.Promise;
@@ -104,14 +104,22 @@ function ensureAuthenticated(req, res, next) {
     }
 }
 
+// enable CORS
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
+
  
-app.get('/', (req, res) =>{
+/* app.get('/', (req, res) =>{
     const title = 'welcome'
     res.render('index',{
         title
     });
     //console.log(req.name)
-}); 
+});  */
 
 app.get('/about',(req, res) =>{
     res.render('about');
@@ -386,7 +394,8 @@ app.use('/user/map', (req, res) =>{
     })
 })
 
-app.use('/users', users);
+app.use('/user', users);
+app.use('/', routes);
 
 app.listen(port, () => {
     console.log(`Server start on port ${port}`)
