@@ -14,8 +14,8 @@ var cookieParser = require('cookie-parser');
 const app = express();
 const port = config.port;
 
-var users = require('./routes/user');
-var boats = require('./routes/boat')
+require('./models/user');
+const User = mongoose.model('User');
  
 //Map global promise to get rid of warning
 mongoose.Promise = global.Promise;
@@ -82,26 +82,14 @@ app.use(expressValidator({
     }
 }));
 
-app.use(flash());
-app.use(function(req, res, next){
-    res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
-    res.locals.error = req.flash('error');
-    res.locals.user = req.user || null;
-    next();
-});
 
-// enable CORS
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
   });
 
-require('./models/user');
-const User = mongoose.model('User');
-
-app.use('/user/map', (req, res) =>{
+/* app.use('/user/map', (req, res) =>{
     User.find({})
     .sort({date: 'desc'})
     .then( users =>{
@@ -113,7 +101,10 @@ app.use('/user/map', (req, res) =>{
             result
         });
     })
-})
+}) */
+
+var users = require('./routes/user');
+var boats = require('./routes/boat')
 
 app.use('/user', users)
 app.use('/boat', boats)
