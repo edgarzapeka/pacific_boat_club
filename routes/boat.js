@@ -11,6 +11,7 @@ router.get("/list", (req, res) => {
     Boat.find({})
     .sort({date: 'desc'})
     .then( boats =>{
+        console.log(boats);
         res.json({  response: "success", data: boats});
     })
 })

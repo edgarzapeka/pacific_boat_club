@@ -1,4 +1,4 @@
-db.members.insert( 
+db.users.insert( 
 [
    {
     "firstname": "khoa",
