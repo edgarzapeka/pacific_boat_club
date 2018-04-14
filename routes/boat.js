@@ -54,11 +54,11 @@ router.put('/edit',  passport.authenticate('jwt', {session: false}), (req, res) 
     })
 })
 
-router.delete('/delete/:id',  passport.authenticate('jwt', {session: false}), (req, res) => {
+router.get('/delete/:id',  passport.authenticate('jwt', {session: false}), (req, res) => {
     Boat.remove({_id : req.params.id})
     .then( () => {
         res.json({  response: "success", message: "The Boat Deleted Successfully"})
-    })
+    }).catch(() => res.json({ response: "failure", message: "The Boiat Not Found" }))
 });
 
 
