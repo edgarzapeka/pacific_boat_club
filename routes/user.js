@@ -86,12 +86,20 @@ router.post('/authenticate', function(req, res) {
     });
 });
 
-router.get('/list', passport.authenticate('jwt', {session: false}), (req, res) => {
+// router.get('/list', passport.authenticate('jwt', {session: false}), (req, res) => {
+//     User.find({})
+//     .sort({date: 'desc'})
+//     .then( users =>{
+//         res.json({ response: "success", data: users });
+//     })
+// }) 
+router.get("/list", (req, res) => {
     User.find({})
     .sort({date: 'desc'})
     .then( users =>{
-        res.json({ response: "success", data: users });
+        console.log(users);
+        res.json({  response: "success", data: users});
     })
-}) 
+})
 
 module.exports = router;
