@@ -38,7 +38,11 @@ const Member = mongoose.model('members');
 require('./models/boat');
 const Boat = mongoose.model('boats');
 
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
@@ -81,13 +85,6 @@ app.use(expressValidator({
         }
     }
 }));
-
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    next();
-  });
 
 /* app.use('/user/map', (req, res) =>{
     User.find({})

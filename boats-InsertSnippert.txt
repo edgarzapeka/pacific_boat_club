@@ -4,7 +4,7 @@ db.boats.insert([
       "BoatLengthInFeet": 5,
       "BoatYear": "2015",
       "BoatCapacityInPeople": 5,
-      "BoatPictureUrl": "",
+      "BoatPictureUrl": "https://images.pexels.com/photos/261516/pexels-photo-261516.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "RentedBy": "knguyen@my.bcit.ca"
     },
     {
@@ -12,7 +12,7 @@ db.boats.insert([
       "BoatLengthInFeet": 6,
       "BoatYear": "2016",
       "BoatCapacityInPeople": 6,
-      "BoatPictureUrl": "",
+      "BoatPictureUrl": "https://images.pexels.com/photos/144634/pexels-photo-144634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "RentedBy": "edgar.zapeka@mail.com"
     },
     {
@@ -20,7 +20,7 @@ db.boats.insert([
       "BoatLengthInFeet": 7,
       "BoatYear": "2017",
       "BoatCapacityInPeople": 7,
-      "BoatPictureUrl": "",
+      "BoatPictureUrl": "https://images.pexels.com/photos/37859/sailing-ship-vessel-boat-sea-37859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "RentedBy": ""
     },
     {
@@ -28,7 +28,7 @@ db.boats.insert([
       "BoatLengthInFeet": 8,
       "BoatYear": "2018",
       "BoatCapacityInPeople": 8,
-      "BoatPictureUrl": "",
+      "BoatPictureUrl": "https://images.pexels.com/photos/271681/pexels-photo-271681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "RentedBy": ""
     },
     
@@ -37,7 +37,7 @@ db.boats.insert([
       "BoatLengthInFeet": 9,
       "BoatYear": "2017",
       "BoatCapacityInPeople": 9,
-      "BoatPictureUrl": "",
+      "BoatPictureUrl": "https://images.pexels.com/photos/382167/pexels-photo-382167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "RentedBy": "",
     },   
     {
@@ -53,7 +53,7 @@ db.boats.insert([
       "BoatLengthInFeet": 8,
       "BoatYear": "2018",
       "BoatCapacityInPeople": 8,
-      "BoatPictureUrl": "",
+      "BoatPictureUrl": "https://images.pexels.com/photos/273886/pexels-photo-273886.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "RentedBy": ""
     },
     {
@@ -61,7 +61,7 @@ db.boats.insert([
       "BoatLengthInFeet": 7,
       "BoatYear": "2017",
       "BoatCapacityInPeople": 7,
-      "BoatPictureUrl": "",
+      "BoatPictureUrl": "https://images.pexels.com/photos/382167/pexels-photo-382167.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "RentedBy": ""
     },
     {
@@ -69,7 +69,7 @@ db.boats.insert([
       "BoatLengthInFeet": 6,
       "BoatYear": "2016",
       "BoatCapacityInPeople": 6,
-      "BoatPictureUrl": "",
+      "BoatPictureUrl": "https://images.pexels.com/photos/910154/pexels-photo-910154.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "RentedBy": ""
     },
     {
@@ -77,7 +77,7 @@ db.boats.insert([
       "BoatLengthInFeet": 5,
       "BoatYear": "2015",
       "BoatCapacityInPeople": 5,
-      "BoatPictureUrl": "",
+      "BoatPictureUrl": "https://images.pexels.com/photos/575890/pexels-photo-575890.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "RentedBy": ""
     }
 ]);
