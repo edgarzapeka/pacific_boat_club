@@ -97,7 +97,7 @@ router.get("/list", (req, res) => {
     User.find({})
     .sort({date: 'desc'})
     .then( users =>{
-        console.log(users);
+        //console.log(users);
         res.json({  response: "success", data: users});
     })
 })
