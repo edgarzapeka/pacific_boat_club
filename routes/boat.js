@@ -30,6 +30,23 @@ router.post("/add",  passport.authenticate('jwt', {session: false}), (req, res) 
     })
 })
 
+router.post('/rent', passport.authenticate('jwt', {session: false}, {session: false}), (req, res) => {
+    Boat.findById(req.body.BoatId, (err, boat) => {
+        if (err){
+            console.log('******* Error ' + error)
+            return "";
+        } 
+    
+        boat.RentedBy = req.body.RentedBy
+
+        boat.save((err, updatedBoat) => {
+            if (err) console.log('******* Updated Error ' + error)
+
+            res.json({  response: "success", message: "The Boat Rented Successfully"})
+        })
+    })     
+});
+
 router.get("/getBoat/:id", passport.authenticate('jwt', {session: false}), (req, res) => {
     Boat.findOne({
         _id: req.params.id
