@@ -74,7 +74,7 @@ router.post('/authenticate', function(req, res) {
                     var token = jwt.sign(user.toJSON(), config.secret, {
                         expiresIn: 10080 // week in seconds
                     });
-                    res.json({ response: "success", token: token, userRole: user.userRole });
+                    res.json({ response: "success", token: token, userRole: user.role });
                 } else {
                     res.send( {
                         response: "failure",
